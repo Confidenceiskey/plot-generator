@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'starJedise';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./starJedise.ttf');
+}
+
+@font-face {
+  font-family: 'starJediHol';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./starJediHol.ttf');
+}
+
+@font-face {
+  font-family: 'distantGalaxy';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./distantGalaxy.ttf');
+}
+
+/* ARE NOT CURRENTLY IN USE */
+
+@font-face {
+  font-family: 'starJedi';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./starJedi.ttf');
+}
+
+@font-face {
+  font-family: 'starJediOut';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./starJediOut.ttf');
+}
