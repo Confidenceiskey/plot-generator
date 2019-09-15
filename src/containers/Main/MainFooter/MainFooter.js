@@ -1,9 +1,9 @@
 import React from 'react';
-import MyButton from '../../../components/MyButton/MyButton';
+import PlotButton from '../../../components/Buttons/PlotButton';
 
 const MainFooter = ({ onClick }) => {
   return (
-    <MyButton 
+    <PlotButton 
       fullWidth={true} 
       text='Generate Plot' 
       onClick={onClick} 

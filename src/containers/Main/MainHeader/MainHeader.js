@@ -16,8 +16,11 @@ const Heading = styled(Typography)({
   fontFamily: 'starJediHol',
   fontSize: '80px',
 
-  '@media (max-width: 600px)': {
+  '@media (min-width: 451px) and (max-width: 600px)': {
     fontSize: '64px'
+  },
+  '@media (max-width: 450px)': {
+    fontSize: '52px'
   }
 });
 
@@ -25,8 +28,11 @@ const SubHeading = styled(Typography)({
   fontFamily: 'starJedise',
   fontSize: '28px',
 
-  '@media (max-width: 600px)': {
+  '@media (min-width: 451px) and (max-width: 600px)': {
     fontSize: '25px'
+  },
+  '@media (max-width: 450px)': {
+    fontSize: '23px'
   }
 });
 

@@ -15,10 +15,14 @@ const ThisButton = styled(Button)({
 
   '&:hover': {
     background: '#fdd820'
+  },
+
+  '@media (max-width: 600px)': {
+    fontSize: '21px'
   }
 });
 
-const MyButton = ({ fullWidth, text, onClick }) => {
+const PlotButton = ({ fullWidth, text, onClick }) => {
   return (
     <ThisButton 
       fullWidth={fullWidth} 
@@ -29,4 +33,4 @@ const MyButton = ({ fullWidth, text, onClick }) => {
   );
 }
 
-export default MyButton;
+export default PlotButton;
