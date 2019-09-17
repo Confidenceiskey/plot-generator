@@ -15,9 +15,9 @@ const ThirdStep = (props) => {
 
           /* Step 3a: if user is searching on their own */
           <Fragment>
-            <SelectionTitle text={`3. Search for a ${singularResourceLC}, then add to Plot`} /> 
+            <SelectionTitle text={`3. Search for a ${singularResourceLC}, then add to plot`} /> 
             <Box display='flex' flexDirection='row'>
-              <SearchBar />
+              <SearchBar {...props} />
               <AddButton text='Add To Plot' outline />
             </Box>
           </Fragment>

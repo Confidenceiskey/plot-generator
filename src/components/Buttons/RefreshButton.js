@@ -22,7 +22,7 @@ const RefreshIcon = withStyles({
 const RefreshButton = ({ pr }) => {
   return (
     <Box display='flex' pr={pr}>
-      <RefreshIcon title='Generate new' />
+      <RefreshIcon title='Generate new' src={refresh} />
     </Box>
   );
 }
