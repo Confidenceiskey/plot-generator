@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from '@material-ui/core';
 import { styled } from '@material-ui/styles';
-import { formatResource, getSwapiData } from './Helpers/SwapiFetch/SwapiFetch';
+import { 
+  formatResource, 
+  getSwapiData,
+  customMessage } from './Helpers/SwapiFetch/SwapiFetch';
 import MainBody from './MainBody/MainBody';
 import MainHeader from './MainHeader/MainHeader';
 import MainFooter from './MainFooter/MainFooter';
@@ -39,52 +42,40 @@ class Main extends Component {
     console.log('click!');
   }
 
-// SWAPI API ** SEARCH ** call
-  getSuggestions = async (resource, searchTerm) => {
-    const resourceType = formatResource(resource);
-    const suggestionList = await getSwapiData(resourceType, searchTerm);
-    const modifiedList = [...suggestionList].map((item) => {
-      return { label: item }
-    });
-    this.setState({ searchSuggestions: modifiedList, isLoading: false });
-  }
+/**
+ ** SWAPI API ** SEARCH ** call 
+ **/
 
 // Step 3a: Dealing with Search bar Changes
-  // onSearchChange = (e) => {
-  //   const searchTerm = e.target.value;
-  //   const { resource } = this.state;
-
-  //   this.setState({
-  //     searchValue: searchTerm,
-  //     isLoading: true
-  //   }, () => { this.getSuggestions(resource, searchTerm) });
-  // };
-
- onSearchChange = (newValue) => {
-    console.log(newValue);
-    const searchTerm = newValue.replace(/\W/g, "");
-    const { resource } = this.state;
-
-    this.setState({
-      searchValue: searchTerm,
-      isLoading: true
-    }, () => { this.getSuggestions(resource, searchTerm) });
+  onSearchChange = (searchTerm) => {
+    this.setState({ searchValue: searchTerm });
     return searchTerm;
-  }
+  };
 
-  loadOptions = (searchValue, callback) => {
-    setTimeout(() => {
-      callback(this.searchResults(searchValue));
-    }, 0);
-  }
+  getSuggestions = async (searchTerm) => {
+    const { resource } = this.state;
+    const resourceType = formatResource(resource);
+    const suggestionList = await getSwapiData(resourceType, searchTerm);
 
-  searchResults = (searchValue) => {
-    if (searchValue.inputValue !== "") {
-      return this.state.searchSuggestions;
+    this.setState({ searchSuggestions: suggestionList });
+    return suggestionList;
+  };
+
+  searchResults = async (searchTerm) => {
+    if (searchTerm !== '' || []) {
+      const suggestions = await this.getSuggestions(searchTerm);
+      return suggestions;
     } else {
       return;
     }
-  }
+  };
+
+  queryList = (searchTerm) => 
+    new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.searchResults(searchTerm));
+      }, 0);
+    });
 
 // Random numbers:
     // People : 1 to 87
@@ -105,13 +96,15 @@ class Main extends Component {
   }
 
   render() {
+    const { searchValue } = this.state;
     return (
       <MainContainer maxWidth='sm'>
         <MainHeader />
         <MainBody 
-          onChange={this.onStepChanges} 
-          onSearchChange={this.onSearchChange}
-          loadOptions={this.loadOptions}
+          onChange={this.onStepChanges}
+          suggestionResults={this.queryList}
+          customDropdownMessage={() => customMessage(searchValue)} 
+          onTextChange={this.onSearchChange}
           onClick={this.onAddToPlot} 
           {...this.state}
         />
@@ -122,30 +115,3 @@ class Main extends Component {
 }
 
 export default Main;
-
-
-  // onSearchChange = (newValue) => {
-  //   console.log(newValue);
-  //   const searchTerm = newValue.replace(/\W/g, "");
-  //   const { resource } = this.state;
-
-  //   this.setState({
-  //     searchValue: searchTerm,
-  //     isLoading: true
-  //   }, () => { this.getSuggestions(resource, searchTerm) });
-  //   return searchTerm;
-  // }
-
-  // loadOptions = (searchValue, callback) => {
-  //   setTimeout(() => {
-  //     callback(this.searchResults(searchValue));
-  //   }, 0);
-  // }
-
-  // searchResults = (searchValue) => {
-  //   if (searchValue.inputValue !== "") {
-  //     return this.state.searchSuggestions;
-  //   } else {
-  //     return;
-  //   }
-  // }

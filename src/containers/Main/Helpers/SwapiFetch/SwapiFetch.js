@@ -20,13 +20,13 @@ const PARAM_SEARCH = 'search=';
 let cancelToken;
 
 /**
-************ SEARCHING ***************
-**/
+ *********** SEARCHING ***************
+ **/
 
 // Retrieving Swapi data based on SEARCH
 export const getSwapiData = async (resourceType, searchTerm) => {
   // If a cancel token exists...
-  if ( cancelToken ) {
+  if (cancelToken) {
     // Cancel the previous token
     cancelToken.cancel();
   }
@@ -38,13 +38,13 @@ export const getSwapiData = async (resourceType, searchTerm) => {
     //Make API call and retrieve the data
     const response = await axios(`${PATH_BASE}${resourceType}?${PARAM_SEARCH}`
      + `${searchTerm}`, { cancelToken: cancelToken.token });
-    //Filter the reponse results to show an array of names
-    const suggestions = response.data.results.map(item => item.name);
+    //Filter the reponse results to show an array of object values/labels
+    const suggestions = response.data.results.map( item => {
+      return { label: item.name, value: item.name };
+    });
     //Limit results to 5
-    const suggestionList = (
-      suggestions.length > 5 ? 
-      suggestions.slice(0, 5) : 
-      suggestions);
+    const suggestionList = 
+      suggestions.length > 5 ? suggestions.slice(0, 5) : suggestions;
     
     return suggestionList;
 
@@ -57,3 +57,13 @@ export const getSwapiData = async (resourceType, searchTerm) => {
     }
   }
 }
+
+// Setting up a custom message for the suggestion dropdown
+export const customMessage = (searchValue) => {
+  if (searchValue !== '') {
+    return 'No results found!';
+  } else {
+    //This prevents the dropdown from showing on initial click
+    return null;
+  }
+};
