@@ -16,14 +16,14 @@ const BlackRadio = withStyles({
   checked: {},
 })(Radio);
 
-const SelectRadio = (props) => {
+const SelectRadio = ({ option, onChange }) => {
   return (
     <FormControl component='fieldset' inputprops={{ 'aria-label': 'radioGroup' }}>
       <RadioGroup 
         aria-label='searchOptions' 
         name='searchOptions'
-        value={props.option} 
-        onChange={props.onChange} 
+        value={option} 
+        onChange={onChange} 
         row
       >
         <Box display='flex' alignItems='center' pb='12px'>

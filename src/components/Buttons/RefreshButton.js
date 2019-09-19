@@ -19,10 +19,10 @@ const RefreshIcon = withStyles({
   
 })(props => <CardMedia {...props} />);
 
-const RefreshButton = ({ pr }) => {
+const RefreshButton = ({ onRefreshClick, pr }) => {
   return (
     <Box display='flex' pr={pr}>
-      <RefreshIcon title='Generate new' src={refresh} />
+      <RefreshIcon onClick={onRefreshClick} title='Generate new' src={refresh} />
     </Box>
   );
 }

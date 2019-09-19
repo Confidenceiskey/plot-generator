@@ -4,7 +4,9 @@ import { styled } from '@material-ui/styles';
 import { 
   formatResource, 
   getSwapiData,
-  customMessage } from './Helpers/SwapiFetch/SwapiFetch';
+  customMessage,
+  generateRandomSwapi 
+} from './Helpers/SwapiFetch/SwapiFetch';
 import MainBody from './MainBody/MainBody';
 import MainHeader from './MainHeader/MainHeader';
 import MainFooter from './MainFooter/MainFooter';
@@ -30,6 +32,7 @@ class Main extends Component {
       option: '',
       searchValue: '',
       searchSuggestions: '',
+      randomSuggestion: '',
       plotList: {},
       isLoading: false,
       isErrorOnFetch: false,
@@ -40,6 +43,12 @@ class Main extends Component {
   handleClick = (e) => {
     e.preventDefault();
     console.log('click!');
+  };
+
+  // Adding resource to plot
+  addToPlot = () => {
+    const { searchValue, randomSuggestion } = this.state;
+    console.log('search state: ', searchValue, 'random: ', randomSuggestion.name);
   }
 
 /**
@@ -47,11 +56,11 @@ class Main extends Component {
  **/
 
 // Step 3a: Dealing with Search bar Changes
-  onSearchChange = (searchTerm) => {
-    this.setState({ searchValue: searchTerm });
-    return searchTerm;
+  onSearchChange = (searchInput) => {
+    this.setState({ searchValue: searchInput.value });
   };
 
+  //Step 3a
   getSuggestions = async (searchTerm) => {
     const { resource } = this.state;
     const resourceType = formatResource(resource);
@@ -61,6 +70,7 @@ class Main extends Component {
     return suggestionList;
   };
 
+  //Step 3a
   searchResults = async (searchTerm) => {
     if (searchTerm !== '' || []) {
       const suggestions = await this.getSuggestions(searchTerm);
@@ -70,6 +80,7 @@ class Main extends Component {
     }
   };
 
+  //Step 3a
   queryList = (searchTerm) => 
     new Promise(resolve => {
       setTimeout(() => {
@@ -77,26 +88,29 @@ class Main extends Component {
       }, 0);
     });
 
-// Random numbers:
-    // People : 1 to 87
-    // Planets: 1 to 61
-  // random URL string = https://swapi.co/api/resource/randomNumber
+  // Step 3b: Obtains random resource from the SWAPI API
+  getRandomQuery = async () => {
+    this.setState({ isLoading: true, randomSuggestion: '' });
+    const { resource } = this.state;
+    const randomQuery = await generateRandomSwapi(resource);
+    this.setState({ isLoading: false, randomSuggestion: randomQuery });
+  };
 
-
-// Combined steps 1 & 2 for dealing with onChange events (dropdown & radio lists)
+  // Combined steps 1 & 2 for dealing with onChange events (dropdown & radio lists)
   onStepChanges = (e) => {
     const { value } = e.target;
     const name = e.target.name.slice(0, -1);
     this.setState({ [name]: value });
 
-    if (this.state.option === 'random') {
-      console.log('resource: ', this.state.resource, ' option: ', this.state.option)
-      //this.getSwapiData(this.state.resource, this.state.option);
+    // Initializes the process of generating a random resource (if selected).
+    // Jumps to Step 3b
+    if (value === 'random') {
+      this.getRandomQuery();
     }
-  }
+  };
 
   render() {
-    const { searchValue } = this.state;
+    const { searchValue, randomSuggestion } = this.state;
     return (
       <MainContainer maxWidth='sm'>
         <MainHeader />
@@ -105,9 +119,16 @@ class Main extends Component {
           suggestionResults={this.queryList}
           customDropdownMessage={() => customMessage(searchValue)} 
           onTextChange={this.onSearchChange}
-          onClick={this.onAddToPlot} 
+          onRefreshClick={this.getRandomQuery}
+          plotButtonClick={this.addToPlot}
           {...this.state}
         />
+        { 
+          <div>
+            <h3>current searchValue: {searchValue}</h3>
+            <h3>current randomValue: {randomSuggestion.name}</h3>
+          </div>
+        }
         <MainFooter onClick={this.handleClick} />
       </MainContainer>
     );

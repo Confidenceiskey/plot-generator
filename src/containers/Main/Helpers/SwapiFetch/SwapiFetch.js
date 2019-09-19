@@ -1,5 +1,19 @@
 import axios from 'axios';
 
+/**
+ ** SMALLER HELPER FUNCTIONS
+ **/
+
+// Setting up a custom message for the suggestion dropdown
+export const customMessage = (searchValue) => {
+  if (searchValue !== '') {
+    return 'No results found!';
+  } else {
+    //This prevents the dropdown from showing on initial click
+    return null;
+  }
+};
+
 // Format resource to match SWAPI API call 
 export const formatResource = (resource) => {
   switch (resource) {
@@ -12,6 +26,19 @@ export const formatResource = (resource) => {
   }
 }
 
+// Constant values used for random number generation
+const resourceQuantity = {
+  people: 87,
+  planets: 61
+};
+
+// Generates random number for Swapi API call
+export const generateRandomNumber = (resource) => {
+  const upperLimit = resourceQuantity[resource];
+  const randomNum = Math.ceil(Math.random() * upperLimit);
+  return randomNum;
+}
+
 // Constants for SWAPI API
 const PATH_BASE = 'https://swapi.co/api/';
 const PARAM_SEARCH = 'search=';
@@ -20,7 +47,7 @@ const PARAM_SEARCH = 'search=';
 let cancelToken;
 
 /**
- *********** SEARCHING ***************
+ ****** SWAPI SEARCHING **************
  **/
 
 // Retrieving Swapi data based on SEARCH
@@ -48,7 +75,7 @@ export const getSwapiData = async (resourceType, searchTerm) => {
     
     return suggestionList;
 
-  } catch(err) { 
+  } catch (err) { 
     if (axios.isCancel(err)) {
       //Search request was canceled. Do nothing!
       return '';
@@ -58,12 +85,18 @@ export const getSwapiData = async (resourceType, searchTerm) => {
   }
 }
 
-// Setting up a custom message for the suggestion dropdown
-export const customMessage = (searchValue) => {
-  if (searchValue !== '') {
-    return 'No results found!';
-  } else {
-    //This prevents the dropdown from showing on initial click
-    return null;
+/**
+ *********** SWAPI RANDOM ***************
+ **/
+
+export const generateRandomSwapi = async (resource) => {
+  const resourceType = formatResource(resource);
+  const randomNum = generateRandomNumber(resourceType);
+
+  try {
+    const response = await axios(`${PATH_BASE}${resourceType}/${randomNum}`);
+    return response.data;
+  } catch (err) {
+    return 'Unfortunately your search request could not be processed!';
   }
-};
+}

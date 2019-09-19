@@ -5,7 +5,7 @@ import AsyncSelect from 'react-select/async';
 const SearchBar = ({ 
   onTextChange, 
   suggestionResults, 
-  customDropdownMessage 
+  customDropdownMessage,
 }) => {
   return (
     <Box display='flex' alignItems='center'>
@@ -14,7 +14,7 @@ const SearchBar = ({
           loadOptions={suggestionResults}
           placeholder='Search...'
           noOptionsMessage={customDropdownMessage}
-          onInputChange={onTextChange}
+          onChange={onTextChange}
         />
       </Box>
     </Box>

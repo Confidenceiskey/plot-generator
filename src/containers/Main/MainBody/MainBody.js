@@ -4,8 +4,6 @@ import PlotList from '../../../components/PlotList/PlotList';
 import PlotSelection from '../../../components/PlotSelection/PlotSelection';
 
 const MainBody = (props) => {
-  //const resourceToLC = resource.toLowerCase();
-
   return (
     <Box px='30px' py='15px' bgcolor='secondary.main'>
       <PlotSelection {...props} />

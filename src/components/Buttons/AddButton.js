@@ -2,10 +2,10 @@ import React from 'react';
 import { Box, Button } from '@material-ui/core';
 
 const AddButton = (props) => {
-  const { text } = props;
+  const { text, onClick } = props;
   return (
     <Box mx='10px'>
-      <Button variant='outlined' color='primary' size='large'>
+      <Button onClick={onClick} variant='outlined' color='primary' size='large'>
         {text}
       </Button>
     </Box>
