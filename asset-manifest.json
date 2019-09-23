@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.js": "/plot-generator/static/js/main.6adda50c.chunk.js",
+    "main.js.map": "/plot-generator/static/js/main.6adda50c.chunk.js.map",
+    "runtime~main.js": "/plot-generator/static/js/runtime~main.6711312d.js",
+    "runtime~main.js.map": "/plot-generator/static/js/runtime~main.6711312d.js.map",
+    "static/js/2.b0cf6542.chunk.js": "/plot-generator/static/js/2.b0cf6542.chunk.js",
+    "static/js/2.b0cf6542.chunk.js.map": "/plot-generator/static/js/2.b0cf6542.chunk.js.map",
+    "index.html": "/plot-generator/index.html",
+    "precache-manifest.5ff94af8a723a08eb049f84756b27c69.js": "/plot-generator/precache-manifest.5ff94af8a723a08eb049f84756b27c69.js",
+    "service-worker.js": "/plot-generator/service-worker.js",
+    "static/media/close.svg": "/plot-generator/static/media/close.71793c62.svg",
+    "static/media/refresh.svg": "/plot-generator/static/media/refresh.2fcb3dc2.svg",
+    "static/media/trash.svg": "/plot-generator/static/media/trash.0213d47b.svg"
+  }
+}
