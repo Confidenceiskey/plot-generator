@@ -6,19 +6,20 @@ import { mainStyles } from '../../styles/GlobalStyles/GlobalStyles';
 const { primaryDark, secondaryColor } = mainStyles;
 
 const ThisButton = styled(Button)({
-  borderRadius: '0px',
   background: secondaryColor,
   color: primaryDark,
   fontSize: '24px',
   textTransform: 'capitalize',
   fontFamily: 'distantGalaxy',
+  borderRadius: '0 0 30px 30px',
 
   '&:hover': {
     background: '#fdd820'
   },
 
   '@media (max-width: 600px)': {
-    fontSize: '21px'
+    fontSize: '21px',
+    borderRadius: '0px'
   }
 });
 

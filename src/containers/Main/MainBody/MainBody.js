@@ -1,13 +1,13 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
-import PlotList from '../../../components/PlotList/PlotList';
-import PlotSelection from '../../../components/PlotSelection/PlotSelection';
+import MainBodyLower from './MainBodyLower/MainBodyLower';
+import MainBodyUpper from './MainBodyUpper/MainBodyUpper';
 
 const MainBody = (props) => {
   return (
-    <Box px='30px' py='15px' bgcolor='secondary.main'>
-      <PlotSelection {...props} />
-      <PlotList />
+    <Box>
+      <MainBodyUpper {...props} />
+      <MainBodyLower {...props} />
     </Box>
   );
 }

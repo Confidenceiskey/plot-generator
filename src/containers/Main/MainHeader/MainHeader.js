@@ -9,7 +9,12 @@ const HeaderContainer = styled(({ bgColor, ...other }) =>
   <Box {...other} />
 )({
   backgroundColor: props => props.bgColor,
-  padding: '10px 0'
+  padding: '10px 0',
+  borderRadius: '30px 30px 0 0',
+
+  '@media (max-width: 600px)': {
+    borderRadius: '0px' 
+  }
 });
 
 const Heading = styled(Typography)({

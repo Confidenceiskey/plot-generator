@@ -1,38 +1,19 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { Box } from '@material-ui/core';
-import AddButton from '../../Buttons/AddButton';
-import QueryResultBox from '../../QueryResultBox/QueryResultBox';
-import RefreshButton from '../../Buttons/RefreshButton';
-import SearchBar from '../../SearchBar/SearchBar';
-import SelectionTitle from '../../SelectionTitle/SelectionTitle';
+import Step3A from './Step3A/Step3A';
+import Step3B from './Step3B/Step3B';
 
 const ThirdStep = (props) => {
-  const { resource, option, plotButtonClick } = props;
+  const { resource, option } = props;
   const singularResourceLC = resource.toLowerCase().slice(0, -1);
+  
+  const step3AB = option === 'search' ?
+    <Step3A singularResourceLC={singularResourceLC} {...props} /> :
+    <Step3B singularResourceLC={singularResourceLC} {...props} />
 
   return (
     <Box display='flex' flexDirection='column' alignItems='center'>
-      { option === 'search' ? 
-        (/* Step 3a: if user is searching on their own */
-          <Fragment>
-            <SelectionTitle text={`3. Search for a ${singularResourceLC}, then add to plot`} /> 
-            <Box display='flex' flexDirection='row'>
-              <SearchBar {...props} />
-              <AddButton onClick={plotButtonClick} text='Add To Plot' outline />
-            </Box>
-          </Fragment>
-        ) : 
-        (/* Step 3b: if user wants random resource generated */
-          <Fragment>
-            <SelectionTitle text={`3. Find ${singularResourceLC}, then add to plot`} /> 
-            <Box display='flex' alignItems='center' mt='5px'>
-              <RefreshButton pr='10px' {...props} />
-              <QueryResultBox {...props} />
-              <AddButton onClick={plotButtonClick} text='Add To Plot' outline />
-            </Box>
-          </Fragment>
-        )
-      }
+      {step3AB}
     </Box>
   );
 }
