@@ -18,19 +18,3 @@
   font-weight: normal;
   src: url('./distantGalaxy.ttf');
 }
-
-/* ARE NOT CURRENTLY IN USE */
-
-@font-face {
-  font-family: 'starJedi';
-  font-style: normal;
-  font-weight: normal;
-  src: url('./starJedi.ttf');
-}
-
-@font-face {
-  font-family: 'starJediOut';
-  font-style: normal;
-  font-weight: normal;
-  src: url('./starJediOut.ttf');
-}

@@ -295,8 +295,8 @@ const findDescription = (
         + `remark still ${mood}s ${chars[j].name} to this day. It is something `
         + `that they will never let go of. However, their is a ${funny} living on `
         + `${planets[i].name} by the name of ${chars[i].name}. They have a ${curious} `
-        + `force to them and are ready for battle? Will this be the battle of the `
-        + `the century?`,
+        + `vibe to them and are ready for battle! Will this be the battle of the `
+        + `century?`,
         `Normally a quiet ${time} on ${planets[i].name}, but not today. Today is a `
         + `very ${curious} ${time} for this little planet. Two new faces have come `
         + `to visit in a ${action} of a lifetime. Who will win? Will it be the ${bad} `

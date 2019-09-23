@@ -7,7 +7,11 @@ const styles = theme => ({
   "@global": {
     body: {
       background: 'linear-gradient(#434343, #000000)',
-      minHeight: '100vh'
+      minHeight: '100vh',
+      margin: 0,
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+      '-webkit-font-smoothing': 'antialiased',
+      '-moz-osx-font-smoothing': 'grayscale'
     }
   }
 });

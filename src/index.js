@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './containers/App';
 import { paletteTheme } from './styles/Themes/Palette/PaletteTheme';
 import { ThemeProvider } from '@material-ui/styles';
