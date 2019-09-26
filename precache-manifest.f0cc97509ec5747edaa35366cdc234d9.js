@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "053bd0d0cb3ee01ed1674a4367bc3121",
+    "revision": "401a0e08e15b3bcb7f051138fb8ce7b8",
     "url": "/plot-generator/index.html"
   },
   {
