@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9c055b2a7705998b8fd85b7e25a8855d",
+    "revision": "053bd0d0cb3ee01ed1674a4367bc3121",
     "url": "/plot-generator/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/plot-generator/static/js/2.b0cf6542.chunk.js"
   },
   {
-    "revision": "fda05b9414e75563ec04",
-    "url": "/plot-generator/static/js/main.6adda50c.chunk.js"
+    "revision": "ab5091088a9250df481b",
+    "url": "/plot-generator/static/js/main.3f940ea3.chunk.js"
   },
   {
     "revision": "5237578be9d8bcb21621",
