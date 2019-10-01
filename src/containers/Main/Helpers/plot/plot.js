@@ -103,7 +103,7 @@ const findTitle = (
     } else if (numCharacters === 1) {
       return [
       `Planet ${planets[i].name}, beware of the ${bad} ${chars[i].name}`,
-      `${chars[i].name} and their ${verbs} history`,
+      `${chars[i].name} and their ${verb} history`,
       `People of ${planets[i].name}, beware of the scam`
       ];
     } else if (numCharacters === 2) {
@@ -282,7 +282,7 @@ const findDescription = (
         + `there for? Was a ${serious} about to occur of ${planets[i].name}? Find out...`,
         `How ${verb} can someone be? What goes into creating such a life like that? `
         + `Well this is the story of ${chars[i].name}. Born on a ${object} in `
-        + `${planets[i].name}, they had their life difficult from the beginning. This `
+        + `${planets[i].name}, they have had a difficult life right from the beginning. This `
         + `episode will take you through it, including the story of their ${item}.`,
         `There is a ${bad} person going around ${planets[i].name}. Who is this ${bad} `
         + `person and what are they up to? Why are they on a ${action} to scam everyone `
