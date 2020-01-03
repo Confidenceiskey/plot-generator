@@ -1,19 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c02380dd3bd38a180d387ffe07529e25",
+    "revision": "8afe795ccddba9e6aae12f4f4f3cdc0b",
     "url": "/plot-generator/index.html"
   },
   {
-    "revision": "ee92e1ef65df6eeffcde",
-    "url": "/plot-generator/static/js/2.b0cf6542.chunk.js"
+    "revision": "6cb98530b22013db2570",
+    "url": "/plot-generator/static/js/2.3d0bde39.chunk.js"
   },
   {
-    "revision": "86c6e483e8be5177d3dd",
-    "url": "/plot-generator/static/js/main.3e9416c1.chunk.js"
+    "revision": "4a41cdf6b78bae1aab6c40b5ad7575da",
+    "url": "/plot-generator/static/js/2.3d0bde39.chunk.js.LICENSE"
   },
   {
-    "revision": "5237578be9d8bcb21621",
-    "url": "/plot-generator/static/js/runtime~main.6711312d.js"
+    "revision": "bbf857a526e24d80148e",
+    "url": "/plot-generator/static/js/main.ef8efe30.chunk.js"
+  },
+  {
+    "revision": "b869159a9c2db35ff78d",
+    "url": "/plot-generator/static/js/runtime-main.25d8c9c5.js"
   },
   {
     "revision": "71793c6284fc455bc619bcdd495a9f7e",
