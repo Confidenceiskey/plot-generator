@@ -28,8 +28,8 @@ export const formatResource = (resource) => {
 
 // Constant values used for random number generation
 const resourceQuantity = {
-  people: 87,
-  planets: 61
+  people: 82,
+  planets: 60,
 };
 
 // Generates random number for Swapi API call
@@ -40,7 +40,7 @@ export const generateRandomNumber = (resource) => {
 }
 
 // Constants for SWAPI API
-const PATH_BASE = 'https://swapi.co/api/';
+const PATH_BASE = 'https://swapi.dev/api/';
 const PARAM_SEARCH = 'search=';
 
 // Create a global cancel token variable
