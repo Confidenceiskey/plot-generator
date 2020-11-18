@@ -17,7 +17,7 @@ const DeleteIcon = withStyles({
   }
 })(props => <CardMedia {...props} />);
 
-const DeleteButton = ({ pr, onDelete, pos }) => {
+const DeleteButton = ({ pr = '0px', onDelete, pos }) => {
   return (
     <Box display='flex' pr={pr}>
       <DeleteIcon pos={pos} onClick={() => onDelete(pos)} title='Delete' src={trash} />
