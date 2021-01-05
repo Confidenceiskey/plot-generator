@@ -63,7 +63,7 @@ export const getSwapiData = async (resourceType, searchTerm) => {
 
   try {
     //Make API call and retrieve the data
-    const response = await axios(`${PATH_BASE}${resourceType}?${PARAM_SEARCH}`
+    const response = await axios(`${PATH_BASE}${resourceType}/?${PARAM_SEARCH}`
      + `${searchTerm}`, { cancelToken: cancelToken.token });
     //Filter the reponse results to show an array of object values/labels
     const suggestions = response.data.results.map( item => {
