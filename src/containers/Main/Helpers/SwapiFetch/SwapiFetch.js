@@ -94,7 +94,7 @@ export const generateRandomSwapi = async (resource) => {
   const randomNum = generateRandomNumber(resourceType);
 
   try {
-    const response = await axios(`${PATH_BASE}${resourceType}/${randomNum}`);
+    const response = await axios(`${PATH_BASE}${resourceType}/${randomNum}/`);
     return response.data;
   } catch (err) {
     return 'Unfortunately your search request could not be processed!';
