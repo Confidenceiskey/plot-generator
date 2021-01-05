@@ -8,8 +8,8 @@ The aim for this project was to build a web app that used the SWAPI API to allow
 To complete the project, the below **user stories** needed to be fulfilled:
 - I'm able to select at least two resources
 - I'm able to search for a particular resource
-- A random resource can be generated automatically for me
-- A plot title, description and resource list is generated for me
+- A random resource can be generated automatically
+- A plot title, description and resource list is generated
 
 #### Project Approach
 
