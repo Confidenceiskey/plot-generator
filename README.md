@@ -1,4 +1,4 @@
-### [Star Wars Plot Generator](https://confidenceiskey.github.io/plot-generator/)
+### [Star Wars Plot Generator](https://davidpnowak.com/p/star-wars-plot-generator/)
 
 _A web app that generates a Star Wars Plot (title & description) for you_
 
@@ -43,7 +43,7 @@ At the end I added a modal window overlay that would show the plot to the user.
 
 #### Preview
 
-Check out the [live version](https://confidenceiskey.github.io/plot-generator/)
+Check out my live [Star Wars Plot Generator](https://davidpnowak.com/p/star-wars-plot-generator/) app.
 
 ![Screenshot of my Star Wars Plot Generator project built in React](https://confidenceiskey.github.io/codepenimg/plot-generator.jpeg "Screenshot of my Star Wars Plot Generator React App")
 
